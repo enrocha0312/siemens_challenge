@@ -42,7 +42,7 @@ public class StringOperations {
 
         if (numberOfOperations==k){
             return "yes";
-        }else if (numberOfOperations<k){
+        }else if (numberOfOperations>k){
             return "no";
         }else {
             //if numberOfOperations>k, we should verify if there is any way to realize it
