@@ -17,7 +17,7 @@ int main(void) {
     while ((c = getchar()) != '\n' && c != EOF) {
         userWord[index++] = c;
         if (index >= size) {
-            size *= 2;  // make the size greater(by 2)
+            size += size;  // make the size greater
             // memory reallocation
             userWord = (char *)realloc(userWord, size * sizeof(char));
         }
