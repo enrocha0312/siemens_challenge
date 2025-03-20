@@ -23,7 +23,7 @@ int main(void) {
         }
     }
 
-    userWord[index] = '\0';  // finalize the string
+    userWord[index] = '\0';  // defining the end the string
 
     int length = stringLength(userWord);
     printf("Length of the typed string: %i\n", length);
