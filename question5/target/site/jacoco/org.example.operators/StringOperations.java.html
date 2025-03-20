@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>StringOperations.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">question5</a> &gt; <a href="index.source.html" class="el_package">org.example.operators</a> &gt; <span class="el_source">StringOperations.java</span></div><h1>StringOperations.java</h1><pre class="source lang-java linenums">package org.example.operators;
+
+<span class="nc" id="L3">public class StringOperations {</span>
+    public static String ConcatRemove(String s, String t, int k){
+        //the example from bla bla bla bla ignores the empty spaces
+        //so I'll just make a trim operation for all spaces
+
+<span class="fc" id="L8">        s = s.replace(&quot; &quot;,&quot;&quot;);</span>
+<span class="fc" id="L9">        t = t.replace(&quot; &quot;,&quot;&quot;);</span>
+
+
+<span class="fc bfc" id="L12" title="All 4 branches covered.">        if(((s.length()&lt;1) || (s.length()&gt;100)))throw new ConstraintException(&quot;The length of String s must be between 1 and 100&quot;);</span>
+<span class="fc bfc" id="L13" title="All 4 branches covered.">        if(((t.length()&lt;1) || (t.length()&gt;100)))throw new ConstraintException(&quot;The length of String t must be between 1 and 100&quot;);</span>
+<span class="fc bfc" id="L14" title="All 4 branches covered.">        if(k&lt;1 || k&gt;100)throw new ConstraintException(&quot;k must be between 1 and 100&quot;);</span>
+<span class="fc bfc" id="L15" title="All 4 branches covered.">        if(!s.matches(&quot;[a-z]+&quot;) || !t.matches(&quot;[a-z]+&quot;))throw new ConstraintException(&quot;One of the words does not have only the lower characters from Portuguese Language&quot;);</span>
+
+
+
+<span class="fc" id="L19">        int sumLength = s.length()+t.length();</span>
+
+        //what is this verification? if k has the sum of the lengths, it can just erase a string and the other
+        // but I also must verify if the difference between k and this sum of length is even, because it will be operations remaining
+        // so what I would do, I should undo it
+<span class="fc bfc" id="L24" title="All 4 branches covered.">        if((k&gt;=sumLength) &amp;&amp; (((k-sumLength)%2)==0)){</span>
+<span class="fc" id="L25">            return &quot;yes&quot;;</span>
+        }
+
+        //let's verify if they have the same starting letters
+<span class="fc" id="L29">        int sharedPrefix = 0;</span>
+<span class="fc" id="L30">        int minLength = Math.min(s.length(), t.length());</span>
+
+<span class="pc bpc" id="L32" title="1 of 2 branches missed.">        for(int i =0; i&lt; minLength;i++){</span>
+<span class="fc bfc" id="L33" title="All 2 branches covered.">            if(s.charAt(i) == t.charAt(i)){</span>
+<span class="fc" id="L34">                sharedPrefix++;</span>
+            }else {
+                break;
+            }
+        }
+<span class="fc" id="L39">        int extrasCharactersFromStringS = s.length()-sharedPrefix;</span>
+<span class="fc" id="L40">        int charactersThatMustBeAdd = t.length() - sharedPrefix;</span>
+<span class="fc" id="L41">        int numberOfOperations = extrasCharactersFromStringS + charactersThatMustBeAdd;</span>
+
+<span class="fc bfc" id="L43" title="All 2 branches covered.">        if (numberOfOperations==k){</span>
+<span class="fc" id="L44">            return &quot;yes&quot;;</span>
+<span class="fc bfc" id="L45" title="All 2 branches covered.">        }else if (numberOfOperations&gt;k){</span>
+<span class="fc" id="L46">            return &quot;no&quot;;</span>
+        }else {
+            //if numberOfOperations&lt;k, we should verify if there is any way to realize it
+            //if we have more operations and the difference between them is even, we can just remove and add forever
+<span class="fc bfc" id="L50" title="All 2 branches covered.">            if(((k-numberOfOperations)%2)==0)return &quot;yes&quot;;</span>
+<span class="fc" id="L51">            return &quot;no&quot;;</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
