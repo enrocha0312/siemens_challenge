@@ -53,7 +53,7 @@ public class StringOperatorsTest {
         assertNotNull(response);
     }
     @Test
-    public void itReturnsYesForKSmallerThanNumberOfOperationsButOdd(){
+    public void itReturnsYesForKLessThanNumberOfOperationsButOdd(){
         String s = "bla bla bla bla".replace(" ", "");
         String t = "blablabcde";
         int k = 7;
@@ -64,7 +64,7 @@ public class StringOperatorsTest {
         assertNotNull(response);
     }
     @Test
-    public void itReturnsYesForKSmallerThanNumberOfOperationsEven(){
+    public void itReturnsYesForKLessThanNumberOfOperationsEven(){
         String s = "bla bla bla bla".replace(" ", "");
         String t = "blablabcde";
         int k = 10;
@@ -75,7 +75,7 @@ public class StringOperatorsTest {
         assertNotNull(response);
     }
     @Test
-    public void itThrowsConstraintExceptionForStringSLowerThan1(){
+    public void itThrowsConstraintExceptionForStringSLessThan1(){
         String s="";
         String t="abcdefg";
         int k =10;
@@ -90,7 +90,7 @@ public class StringOperatorsTest {
     }
 
     @Test
-    public void itThrowsConstraintExceptionForStringSLowerGreaterThan100(){
+    public void itThrowsConstraintExceptionForStringSGreaterThan100(){
         String s=generateRandomStringGreaterThan100();
         String t="abcdefg";
         int k =10;
@@ -104,7 +104,7 @@ public class StringOperatorsTest {
         }
     }
     @Test
-    public void itThrowsConstraintExceptionForStringTLowerThan1(){
+    public void itThrowsConstraintExceptionForStringTLessThan1(){
         String t="";
         String s="abcdefg";
         int k =10;
@@ -119,7 +119,7 @@ public class StringOperatorsTest {
     }
 
     @Test
-    public void itThrowsConstraintExceptionForStringTLowerGreaterThan100(){
+    public void itThrowsConstraintExceptionForStringTGreaterThan100(){
         String t=generateRandomStringGreaterThan100();
         String s="abcdefg";
         int k =10;
