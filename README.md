@@ -51,7 +51,7 @@ I chose the C language because I had already a model of this problem which I dev
 
 ### Question 11
 
-I don't know any possible solution different than this which I have implemented by using pointers. If it was required to create it by using Java, I don't know hou I would proceed. We have the reverse method of the class Stringbuilder, but I thought that it was not the goal. So I chose to use the pointers math and a solution in C++. It can seem hard, but it's very simple indeed. We just make the math by using pointers. We use the pointers to have the control of the char of the word. We can pass to this pointer the address of the start char and end char, which was done. If we have the pointer, we can operate inside it, by changing its content. So, the only action we have to do is changing this content by using some logic. 
+I don't know any possible solution different than this which I have implemented by using pointers. If it was required to create it by using Java, I don't know how I would proceed. We have the reverse method of the class Stringbuilder, but I thought that it was not the goal. So I chose to use the pointers math and a solution in C++. It can seem hard, but it's very simple indeed. We just make the math by using pointers. We use the pointers to have the control of the char of the word. We can pass to this pointer the address of the start char and end char, which was done. If we have the pointer, we can operate inside it, by changing its content. So, the only action we have to do is changing this content by using some logic. 
 
 ### Questions 12, 13, 14 and 15
 
